@@ -1,0 +1,124 @@
+{
+  "menu": [
+    {
+      "name": "Garden Fresh Salad",
+      "category": "Salads",
+      "price": 9.99,
+      "image": "https://via.placeholder.com/300x200"
+    },
+    {
+      "name": "BBQ Pulled Pork Sandwich",
+      "category": "Sandwiches",
+      "price": 12.99,
+      "image": "https://via.placeholder.com/300x200"
+    },
+    {
+      "name": "Mediterranean Grilled Chicken",
+      "category": "Entrees",
+      "price": 14.99,
+      "image": "https://via.placeholder.com/300x200"
+    },
+    {
+      "name": "Veggie Supreme Pizza",
+      "category": "Pizzas",
+      "price": 16.99,
+      "image": "https://via.placeholder.com/300x200"
+    },
+    {
+      "name": "Seafood Linguine Alfredo",
+      "category": "Pasta",
+      "price": 18.99,
+      "image": "https://via.placeholder.com/300x200"
+    },
+    {
+      "name": "Teriyaki Salmon Bowl",
+      "category": "Bowls",
+      "price": 15.99,
+      "image": "https://via.placeholder.com/300x200"
+    },
+    {
+      "name": "Classic Beef Lasagna",
+      "category": "Pasta",
+      "price": 13.99,
+      "image": "https://via.placeholder.com/300x200"
+    },
+    {
+      "name": "Caesar Wrap with Grilled Shrimp",
+      "category": "Wraps",
+      "price": 11.99,
+      "image": "https://via.placeholder.com/300x200"
+    },
+    {
+      "name": "Margherita Flatbread",
+      "category": "Pizzas",
+      "price": 10.99,
+      "image": "https://via.placeholder.com/300x200"
+    },
+    {
+      "name": "Sizzling Fajitas (Chicken/Beef)",
+      "category": "Entrees",
+      "price": 17.99,
+      "image": "https://via.placeholder.com/300x200"
+    },
+    {
+      "name": "Caprese Stuffed Chicken",
+      "category": "Entrees",
+      "price": 19.99,
+      "image": "https://via.placeholder.com/300x200"
+    },
+    {
+      "name": "Quinoa and Black Bean Bowl",
+      "category": "Bowls",
+      "price": 14.99,
+      "image": "https://via.placeholder.com/300x200"
+    },
+    {
+      "name": "Chocolate Hazelnut Cheesecake",
+      "category": "Desserts",
+      "price": 8.99,
+      "image": "https://via.placeholder.com/300x200"
+    },
+    {
+      "name": "Hawaiian Teriyaki Burger",
+      "category": "Burgers",
+      "price": 12.99,
+      "image": "https://via.placeholder.com/300x200"
+    },
+    {
+      "name": "Shrimp Tacos with Mango Salsa",
+      "category": "Tacos",
+      "price": 16.99,
+      "image": "https://via.placeholder.com/300x200"
+    },
+    {
+      "name": "Spinach and Feta Stuffed Mushrooms",
+      "category": "Appetizers",
+      "price": 10.99,
+      "image": "https://via.placeholder.com/300x200"
+    },
+    {
+      "name": "Chicken Pesto Penne",
+      "category": "Pasta",
+      "price": 15.99,
+      "image": "https://via.placeholder.com/300x200"
+    },
+    {
+      "name": "Lemon Blueberry Pancakes (Brunch)",
+      "category": "Brunch",
+      "price": 9.99,
+      "image": "https://via.placeholder.com/300x200"
+    },
+    {
+      "name": "Caprese Salad Skewers",
+      "category": "Appetizers",
+      "price": 8.99,
+      "image": "https://via.placeholder.com/300x200"
+    },
+    {
+      "name": "Raspberry White Chocolate Mousse",
+      "category": "Desserts",
+      "price": 7.99,
+      "image": "https://via.placeholder.com/300x200"
+    }
+  ]
+}
