@@ -4,12 +4,13 @@ import Image from "next/image";
 import { menu } from "../app/mock/menu.json";
 import { useEffect, useState } from "react";
 import { count, log } from "console";
+import { isNumberObject } from "util/types";
 
 export default function Home() {
     const [menuItem, setMenuItem] = useState(
         menu.map((item) => {
             const addCount = { ...item, count: 0 };
-            // console.log(addCount);
+
             return addCount;
         }),
     );
@@ -24,7 +25,6 @@ export default function Home() {
             .filter((item) => item.count > 0)
             .forEach((item) => (Total += item.count * item.price));
         setTotal(Total);
-        console.log(Total);
     }, [menuItem]);
 
     return (
@@ -32,26 +32,24 @@ export default function Home() {
             <main className="w-full h-screen bg bg-gray-100 p-[1rem] ">
                 <h1 className="font-bold  text-lg pt-3">Dishes of the Day</h1>
                 <div className="flex h-full">
-                    <ul className=" flex flex-row flex-wrap h-[95%] justify-center gap-x-2 gap-y-5 pt-[2rem] overflow-scroll">
+                    <ul className=" flex flex-row flex-wrap h-[95%] justify-center gap-x-2 gap-y-5 pt-[2rem] text-sm overflow-scroll">
                         {menu.map((item, index) => {
                             return (
                                 <li
-                                    key={index}
+                                    key={`menu-${index}`}
                                     onClick={() => {
                                         const itemCount = [...menuItem];
                                         itemCount[index].count += 1;
                                         setMenuItem(itemCount);
-                                        // console.log(itemCount);
                                     }}
                                     className=" flex-col w-[23%] min-w-[171px] text-center items-center justify-center 	"
                                 >
                                     <img
-                                        src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                        src={item.image}
                                         className="rounded-lg"
                                         alt=""
                                     />
-                                    {item.name}
-                                    {item.price}
+                                    {item.name}[{item.price}]
                                 </li>
                             );
                         })}
@@ -63,13 +61,11 @@ export default function Home() {
                     <div className="justufy-items-start">
                         <h2 className="font-bold text-lg rounded-lg">Cart</h2>
                     </div>
-                    <div className="grid grid-row-1 h-[450px] pt-3 gap-1 content-start overflow-scroll">
-                        {filterCart.map((item, menu) => {
+                    <div className="grid grid-row-1 h-[500px] pt-3 gap-1 content-start overflow-scroll">
+                        {filterCart.map((item, index) => {
                             return (
                                 <div
-                                    key={
-                                        "item-$${item.count}, {item.name}, {item.price} "
-                                    }
+                                    key={`cart${index}`}
                                     className="grid h-10 grid-cols-6 gap-3 bg-gray-50  "
                                 >
                                     <div className="col-span-1 text-xs bg-gray-50">
@@ -81,7 +77,29 @@ export default function Home() {
                                     <div className="col-span-1 text-xs  bg-gray-50">
                                         {item.price}
                                     </div>
-                                    <div className="col-span-1 text-xs  bg-gray-50"></div>
+                                    <div className="col-span-1 text-xs  bg-gray-50">
+                                        <button
+                                            onClick={() => {
+                                                const deleteIndex =
+                                                    menuItem.findIndex(
+                                                        (delItem) => {
+                                                            return (
+                                                                delItem.name ===
+                                                                item.name
+                                                            );
+                                                        },
+                                                    );
+                                                const itemDel = [...menuItem];
+                                                itemDel[deleteIndex].count -= 1;
+                                                setMenuItem(itemDel);
+                                                console.log(itemDel);
+                                            }}
+                                            className=" w-full h-5 bg-red-600"
+                                        >
+                                            {" "}
+                                            Del
+                                        </button>
+                                    </div>
                                 </div>
                             );
                         })}
