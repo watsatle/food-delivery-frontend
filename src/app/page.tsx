@@ -5,6 +5,8 @@ import { menu } from "../app/mock/menu.json";
 import { useEffect, useState } from "react";
 import { count, log } from "console";
 import { isNumberObject } from "util/types";
+import MenuItem from "@/app/component/menuItem";
+import Cart from "@/app/component/cart";
 
 export default function Home() {
     const [menuItem, setMenuItem] = useState(
@@ -32,28 +34,11 @@ export default function Home() {
             <main className="w-full h-screen bg bg-gray-100 p-[1rem] ">
                 <h1 className="font-bold  text-lg pt-3">Dishes of the Day</h1>
                 <div className="flex h-full">
-                    <ul className=" flex flex-row flex-wrap h-[95%] justify-center gap-x-2 gap-y-5 pt-[2rem] text-sm overflow-scroll">
-                        {menu.map((item, index) => {
-                            return (
-                                <li
-                                    key={`menu-${index}`}
-                                    onClick={() => {
-                                        const itemCount = [...menuItem];
-                                        itemCount[index].count += 1;
-                                        setMenuItem(itemCount);
-                                    }}
-                                    className=" flex-col w-[23%] min-w-[171px] text-center items-center justify-center 	"
-                                >
-                                    <img
-                                        src={item.image}
-                                        className="rounded-lg"
-                                        alt=""
-                                    />
-                                    {item.name}[{item.price}]
-                                </li>
-                            );
-                        })}
-                    </ul>
+                    <MenuItem
+                        menu={menu}
+                        menuItem={menuItem}
+                        setMenuItem={setMenuItem}
+                    />
                 </div>
             </main>
             <div className="flex flex-col h-screen w-[400px] bg-gray-50 p-[1rem] ">
@@ -61,49 +46,11 @@ export default function Home() {
                     <div className="justufy-items-start">
                         <h2 className="font-bold text-lg rounded-lg">Cart</h2>
                     </div>
-                    <div className="grid grid-row-1 h-[500px] pt-3 gap-1 content-start overflow-scroll">
-                        {filterCart.map((item, index) => {
-                            return (
-                                <div
-                                    key={`cart${index}`}
-                                    className="grid h-10 grid-cols-6 gap-3 bg-gray-50  "
-                                >
-                                    <div className="col-span-1 text-xs bg-gray-50">
-                                        {item.count}
-                                    </div>
-                                    <div className="col-span-3 text-xs  bg-gray-50">
-                                        {item.name}
-                                    </div>
-                                    <div className="col-span-1 text-xs  bg-gray-50">
-                                        {item.price}
-                                    </div>
-                                    <div className="col-span-1 text-xs  bg-gray-50">
-                                        <button
-                                            onClick={() => {
-                                                const deleteIndex =
-                                                    menuItem.findIndex(
-                                                        (delItem) => {
-                                                            return (
-                                                                delItem.name ===
-                                                                item.name
-                                                            );
-                                                        },
-                                                    );
-                                                const itemDel = [...menuItem];
-                                                itemDel[deleteIndex].count -= 1;
-                                                setMenuItem(itemDel);
-                                                console.log(itemDel);
-                                            }}
-                                            className=" w-full h-5 bg-red-600"
-                                        >
-                                            {" "}
-                                            Del
-                                        </button>
-                                    </div>
-                                </div>
-                            );
-                        })}
-                    </div>
+                    <Cart
+                        filterCart={filterCart}
+                        menuItem={menuItem}
+                        setMenuItem={setMenuItem}
+                    />
 
                     <div className="content-end">
                         <ul className=" flex w-full h-[20%] font-semibold justify-end ">
