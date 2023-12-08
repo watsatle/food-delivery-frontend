@@ -5,8 +5,10 @@ import { menu } from "../app/mock/menu.json";
 import { useEffect, useState } from "react";
 import { count, log } from "console";
 import { isNumberObject } from "util/types";
+
 import MenuItem from "@/app/component/menuItem";
 import Cart from "@/app/component/cart";
+
 
 export default function Home() {
     const [menuItem, setMenuItem] = useState(
@@ -34,11 +36,13 @@ export default function Home() {
             <main className="w-full h-screen bg bg-gray-100 p-[1rem] ">
                 <h1 className="font-bold  text-lg pt-3">Dishes of the Day</h1>
                 <div className="flex h-full">
+
                     <MenuItem
                         menu={menu}
                         menuItem={menuItem}
                         setMenuItem={setMenuItem}
                     />
+
                 </div>
             </main>
             <div className="flex flex-col h-screen w-[400px] bg-gray-50 p-[1rem] ">
@@ -46,11 +50,13 @@ export default function Home() {
                     <div className="justufy-items-start">
                         <h2 className="font-bold text-lg rounded-lg">Cart</h2>
                     </div>
+
                     <Cart
                         filterCart={filterCart}
                         menuItem={menuItem}
                         setMenuItem={setMenuItem}
                     />
+
 
                     <div className="content-end">
                         <ul className=" flex w-full h-[20%] font-semibold justify-end ">
