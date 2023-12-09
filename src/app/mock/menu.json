@@ -4,49 +4,66 @@
       "name": "Garden Fresh Salad",
       "category": "Salads",
       "price": 89,
-      "image": "https://www.hotelwelkinresidency.com/wp-content/uploads/2017/12/Garden-Fresh-Green-salad.jpg"
+
+      "image": "https://realfood.tesco.com/media/images/RFO-1400x919-CobbSalad-8f25842c-d030-47fc-9336-fd16327830c6-0-1400x919.jpg"
+
     },
     {
       "name": "BBQ Pulled Pork Sandwich",
       "category": "Sandwiches",
       "price": 79,
-      "image": "https://www.slowcookerclub.com/wp-content/uploads/2021/10/slow-cooker-pulled-pork-16.jpg"
+
+      "image": "https://www.southernliving.com/thmb/UW4kKKL-_M3WgP7pkL6Pb6lwcgM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Ham_Sandwich_011-1-49227336bc074513aaf8fdbde440eafe.jpg"
+
     },
     {
       "name": "Mediterranean Grilled Chicken",
       "category": "Entrees",
-      "price": 159,
-      "image": "https://www.allrecipes.com/thmb/ivZqWbkV7kR1xGN_H-kFdF7H8gE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/8647411-8f2a1510893c4c10997b967cff930f46.jpg"
+
+      "price": 89,
+      "image": "https://www.simplyrecipes.com/thmb/m1LB58rp40jNA5L7_6O3IJkj4Cc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Grilled-BBQ-Chicken-LEAD-10-03fd9892eaae4ce1a8a3f4c949657cfd.jpg"
+
     },
     {
       "name": "Veggie Supreme Pizza",
       "category": "Pizzas",
       "price": 112,
-      "image": "https://www.cottagedelight.co.uk/wp-content/uploads/2022/04/Veggie-Supreme-Tomato-Red-Pepper-Pizza-Topper.jpg"
+
+      "image": "https://api.pizzahut.io/v1/content/en-in/in-1/images/pizza/veggie-supreme.bc8dd369182b636ff171077efa53c344.1.jpg"
+
     },
     {
       "name": "Seafood Linguine Alfredo",
       "category": "Pasta",
       "price": 250,
-      "image": "https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/26/67/1/pBB1u6PcQa2hTWyOrZY7_shrimp-fettucine-alfredo-7556.jpg"
+
+      "image": "https://realfood.tesco.com/media/images/RFO-1400x919-CobbSalad-8f25842c-d030-47fc-9336-fd16327830c6-0-1400x919.jpg"
+
+
     },
     {
       "name": "Teriyaki Salmon Bowl",
       "category": "Bowls",
       "price": 150,
-      "image": "https://cookingwithcocktailrings.com/wp-content/uploads/2023/03/Teriyaki-Salmon-Rice-Bowls-87.jpg"
+
+      "image": "https://thepeacheepear.com/wp-content/uploads/2022/01/Teriyaki-Salmon-Bowls_11.jpg"
+
     },
     {
       "name": "Classic Beef Lasagna",
       "category": "Pasta",
       "price": 180,
-      "image": "https://www.thespruceeats.com/thmb/Zlda2_kTF9E0ItaLWPWCVdWsgDM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/basic-lasagna-with-meaty-sauce-3057976-hero-01-faa374482ef3463d8361002c4f9a6fa6.jpg"
+
+      "image": "https://www.cento.com/images/recipes/pasta/traditional_lasagne.webp"
+
     },
     {
       "name": "Caesar Wrap with Grilled Shrimp",
       "category": "Wraps",
       "price": 200,
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReESnwnlY23h5biPOa8NzS-zCjAhRWkbrJtw&usqp=CAU"
+
+      "image": "https://missionfoodscontent.imgix.net/images/recipe/1293.jpg"
+
     },
     {
       "name": "Margherita Flatbread",
@@ -58,31 +75,38 @@
       "name": "Sizzling Fajitas (Chicken/Beef)",
       "category": "Entrees",
       "price": 99,
-      "image": "https://msmarket.coop/wp-content/uploads/steak-fajitas_web-768x515.jpeg"
+
+      "image": "https://www.simplyrecipes.com/thmb/m1LB58rp40jNA5L7_6O3IJkj4Cc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Grilled-BBQ-Chicken-LEAD-10-03fd9892eaae4ce1a8a3f4c949657cfd.jpg"
+
     },
     {
       "name": "Caprese Stuffed Chicken",
       "category": "Entrees",
       "price": 120,
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrS9MtEEbCxpohZPE1CzbtOl0nFNOrN2cqKQ&usqp=CAU"
+
+      "image": "https://www.simplyrecipes.com/thmb/m1LB58rp40jNA5L7_6O3IJkj4Cc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Grilled-BBQ-Chicken-LEAD-10-03fd9892eaae4ce1a8a3f4c949657cfd.jpg"
+
     },
     {
       "name": "Quinoa and Black Bean Bowl",
       "category": "Bowls",
       "price": 89,
-      "image": "https://cdn.sunbasket.com/349fe54c-7fc1-4be8-950f-751225072a61.jpg"
+
+      "image": "https://msmarket.coop/wp-content/uploads/grainbowl_web.jpg"
+
+
     },
     {
       "name": "Chocolate Hazelnut Cheesecake",
       "category": "Desserts",
       "price": 59,
-      "image": "https://via.placeholder.com/300x200"
+      "image": "https://dfwblobstorage.blob.core.windows.net/images/Recipe/PF641DESSERTX1384_alt1-wc.jpg"
     },
     {
       "name": "Hawaiian Teriyaki Burger",
       "category": "Burgers",
       "price": 130,
-      "image": "https://via.placeholder.com/300x200"
+      "image": "https://bakeitwithlove.com/wp-content/uploads/2016/05/Teriyaki-Cheeseburger-h.jpg"
     },
     {
       "name": "Shrimp Tacos with Mango Salsa",
