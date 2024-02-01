@@ -1,33 +1,49 @@
 "use client";
 
-import Image from "next/image";
-import { menu } from "../app/mock/menu.json";
 import { useEffect, useState } from "react";
-import { count, log } from "console";
-import { isNumberObject } from "util/types";
-
 import MenuItem from "@/app/component/menuItem";
 import Cart from "@/app/component/cart";
 
+interface MenuItem {
+    id: number;
+    name: string;
+    description: string | null;
+    price: number;
+    size: string | null;
+    catagory: string | null;
+    store_id: number;
+}
+
+type MenuItemCounter = MenuItem & { count: number };
 
 export default function Home() {
-    const [menuItem, setMenuItem] = useState(
-        menu.map((item) => {
-            const addCount = { ...item, count: 0 };
+    const [menuItem, setMenuItem] = useState<MenuItemCounter[]>([]);
 
-            return addCount;
-        }),
-    );
-
-    const filterCart = menuItem.filter((menu) => menu.count > 0);
-
+    const filterCart = menuItem.filter((menu) => menu.count);
     const [Total, setTotal] = useState(0);
+
+    useEffect(() => {
+        fetch("http://localhost:4000/menu")
+            .then((res) => res.json())
+            .then(({ result }) => {
+                const menuCounter = result.map((item) => {
+                    const addCount: MenuItemCounter = { ...item, count: 0 };
+
+                    return addCount;
+                });
+
+                setMenuItem(menuCounter);
+            })
+            .catch(console.error);
+    }, []);
 
     useEffect(() => {
         let Total = 0;
         menuItem
             .filter((item) => item.count > 0)
+
             .forEach((item) => (Total += item.count * item.price));
+
         setTotal(Total);
     }, [menuItem]);
 
@@ -36,13 +52,11 @@ export default function Home() {
             <main className="w-full h-screen bg bg-gray-100 p-[1rem] ">
                 <h1 className="font-bold  text-lg pt-3">Dishes of the Day</h1>
                 <div className="flex h-full">
-
                     <MenuItem
-                        menu={menu}
+                        menu={menuItem}
                         menuItem={menuItem}
                         setMenuItem={setMenuItem}
                     />
-
                 </div>
             </main>
             <div className="flex flex-col h-screen w-[400px] bg-gray-50 p-[1rem] ">
@@ -56,7 +70,6 @@ export default function Home() {
                         menuItem={menuItem}
                         setMenuItem={setMenuItem}
                     />
-
 
                     <div className="content-end">
                         <ul className=" flex w-full h-[20%] font-semibold justify-end ">
