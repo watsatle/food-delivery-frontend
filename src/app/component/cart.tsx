@@ -28,10 +28,10 @@ export default function Cart(props) {
                                     props.setMenuItem(itemDel);
                                     console.log(itemDel);
                                 }}
-                                className=" w-full h-5 bg-red-600"
+                                className=" w-full h-5 bg-gray-100"
                             >
                                 {" "}
-                                Del
+                                X
                             </button>
                         </div>
                     </div>
