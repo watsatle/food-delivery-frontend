@@ -1,30 +1,22 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import MenuItem from "@/app/component/menuItem";
+import { type Dispatch, type SetStateAction, useEffect, useState } from "react";
+import MenuItem, { type ApiMenuItem } from "@/app/component/menuItem";
 import Cart from "@/app/component/cart";
 
-interface MenuItem {
-    id: number;
-    name: string;
-    description: string | null;
-    price: number;
-    size: string | null;
-    catagory: string | null;
-    store_id: number;
-}
-
-type MenuItemCounter = MenuItem & { count: number };
+export type MenuItemCounter = ApiMenuItem & { count: number };
+export type menuItemProp = Dispatch<SetStateAction<MenuItemCounter[]>>;
 
 export default function Home() {
     const [menuItem, setMenuItem] = useState<MenuItemCounter[]>([]);
+    const [customerId, setcustomerId] = useState<number>(0);
 
     const filterCart = menuItem.filter((menu) => menu.count);
     const [Total, setTotal] = useState(0);
 
     useEffect(() => {
         fetch("http://localhost:4000/menu")
-            .then((res) => res.json())
+            .then((res) => res.json() as Promise<{ result: ApiMenuItem[] }>)
             .then(({ result }) => {
                 const menuCounter = result.map((item) => {
                     const addCount: MenuItemCounter = { ...item, count: 0 };
@@ -35,7 +27,16 @@ export default function Home() {
                 setMenuItem(menuCounter);
             })
             .catch(console.error);
+        fetch("http://localhost:4000/customer")
+            .then((res) => res.json() as Promise<{ result: [{ id: number }] }>)
+            .then(({ result }) => {
+                setcustomerId(result[0].id);
+            });
     }, []);
+
+    // useEffect(() => {
+    //     console.log("-> customer id", customerId);
+    // }, [customerId]);
 
     useEffect(() => {
         let Total = 0;
@@ -52,11 +53,7 @@ export default function Home() {
             <main className="w-full h-screen bg bg-gray-100 p-[1rem] ">
                 <h1 className="font-bold  text-lg pt-3">Dishes of the Day</h1>
                 <div className="flex h-full">
-                    <MenuItem
-                        menu={menuItem}
-                        menuItem={menuItem}
-                        setMenuItem={setMenuItem}
-                    />
+                    <MenuItem menu={menuItem} setMenuItem={setMenuItem} />
                 </div>
             </main>
             <div className="flex flex-col h-screen w-[400px] bg-gray-50 p-[1rem] ">
@@ -78,7 +75,39 @@ export default function Home() {
                         </ul>
                     </div>
                     <div className="flex flex-col h-[20%] w-full  gap-3 justify-end items-center ">
-                        <button className=" h-[1/3] w-[85%] min-h-[48px] rounded-lg bg-blue-500 text-white">
+                        <button
+                            onClick={() => {
+                                type orderTsxItem = {
+                                    customerId: number;
+                                    orderItems: {
+                                        foodItemId: number;
+                                        quantity: number;
+                                    }[];
+                                };
+                                const postOrderItemData: orderTsxItem = {
+                                    customerId: customerId,
+                                    orderItems: filterCart.map((menu) => ({
+                                        foodItemId: menu.id,
+                                        quantity: menu.count,
+                                    })),
+                                };
+                                const fetchResult = fetch(
+                                    "http://localhost:4000/transactions",
+                                    {
+                                        method: "POST",
+                                        headers: {
+                                            "Content-Type": "application/json",
+                                        },
+                                        body: JSON.stringify(postOrderItemData),
+                                    },
+                                )
+                                    .then((res) => res.json())
+                                    .then((res) => console.log("->", res));
+
+                                console.log("-> cart ", filterCart, customerId);
+                            }}
+                            className=" h-[1/3] w-[85%] min-h-[48px] rounded-lg bg-blue-500 text-white"
+                        >
                             {" "}
                             Checkout
                         </button>
